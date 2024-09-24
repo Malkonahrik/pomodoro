@@ -4,10 +4,8 @@ body{
 
 h1,h2,h3,p{
     font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings: "wdth" 100;
-    font-size: auto;
     font-weight: 700;
     color: #fff;
 }
@@ -25,7 +23,6 @@ h1,h2,h3,p{
     cursor: pointer;
     display: flex;
     font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings: "wdth" 100;
     font-size: 100%;
@@ -41,11 +38,9 @@ h1,h2,h3,p{
     text-underline-offset: 1px;
     transition: all .2s ease-in-out;
     user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     width: 10em;
     min-width: 10em;
-    word-break: break-word;
     border: 0;
 }
 
