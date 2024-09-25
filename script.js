@@ -5,14 +5,13 @@ var minute = 25;
 const timer = document.getElementById("timer");
 actualiseTimer();
 
-
 function passageTemps() {
-    idInterval = setInterval(decrementeSeconde(), 1000);
-    console.log(idInterval);
+    if(idInterval == null){
+        idInterval = setInterval(decrementeSeconde, 1000);
+    }
 }
 
 function decrementeSeconde() {
-    console.log("test");
     if (seconde == 0) {
         seconde = 59;
         decrementeMinute();
@@ -23,7 +22,6 @@ function decrementeSeconde() {
 }
 
 function decrementeMinute() {
-    console.log("test");
     if (minute == 0) {
         passagePause();
     } else {
@@ -43,11 +41,9 @@ function passagePause() {
 
 function stop() {
     clearInterval(idInterval);
-    console.log("clear");
 }
 
 function actualiseTimer(){
-    console.log("test");
     let partieMinute = "";
     let partieSeconde = "";
     if(minute < 10){
@@ -59,5 +55,4 @@ function actualiseTimer(){
     }
     partieSeconde += seconde.toString();
     timer.innerText = partieMinute + " : " + partieSeconde;
-    console.log("test");
 }
