@@ -8,6 +8,8 @@ actualiseTimer();
 function passageTemps() {
     if(idInterval == null){
         idInterval = setInterval(decrementeSeconde, 1000);
+    } else {
+        stop();
     }
 }
 
@@ -41,6 +43,7 @@ function passagePause() {
 
 function stop() {
     clearInterval(idInterval);
+    idInterval = null;
 }
 
 function actualiseTimer(){
