@@ -1,7 +1,7 @@
 var idInterval;
 var pause = false;
-var seconde = 0;
-var minute = 25;
+var seconde = 10;
+var minute = 0;
 const timer = document.getElementById("timer");
 actualiseTimer();
 
@@ -44,6 +44,9 @@ function passagePause() {
 function stop() {
     clearInterval(idInterval);
     idInterval = null;
+    seconde = 0;
+    minute = 25;
+    actualiseTimer();
 }
 
 function actualiseTimer(){
