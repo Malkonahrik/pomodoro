@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="C'est un timer pour la méthode pomodoro réalisé lors d'un projet en R3.01">
     <title>Pomodoro Timer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
     <link href="style/style.css" rel="stylesheet">
     <script defer src="script/script.js"></script>
+    <script src="https://kit.fontawesome.com/5038070a3d.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
     <h1 class="centre">Pomodoro Timer</h1>
     <div class="centre">
-        <h2 id="timer"></h2>
+        <div id="etat" class="arrondi centre">
+            <p id="travail">Travail</p>
+            <p id="pause">Pause</p> 
+        </div>       
     </div>
     <div class="centre">
-        <button class="boutton" onclick="passageTemps()">Start</button>
+        <div  id="cercle" class="centre">
+            <p id="timer"></p>
+        </div>
     </div>
-    
+    <div class="centre">
+        <i class="fa-solid fa-play boutton" style="color: #fff;" onclick="passageTemps()"></i>
+    </div>
 </body>
 </html>

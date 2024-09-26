@@ -1,12 +1,29 @@
 var idInterval;
 var pause = false;
-var seconde = 10;
-var minute = 0;
+
+var minuteTravail = 25;
+var secondeTravail = 0;
+
+var minutePause = 0;
+var secondePause = 5;
+
+var minute = minuteTravail;
+var seconde = secondeTravail;
+
+
+
 const timer = document.getElementById("timer");
+const body = document.body;
+const cercle = document.getElementById("cercle");
+const etat = document.getElementById("etat");
+const indicateurTravail = document.getElementById("travail");
+const indicateurPause = document.getElementById("pause");
+
 actualiseTimer();
 
 function passageTemps() {
-    if(idInterval == null){
+    const bouton = document.getElementById("btn");
+    if (idInterval == null) {
         idInterval = setInterval(decrementeSeconde, 1000);
     } else {
         stop();
@@ -34,9 +51,23 @@ function decrementeMinute() {
 
 function passagePause() {
     if (pause) {
-        minute = 25;
+        minute = minuteTravail;
+        seconde = secondeTravail;
+        body.style.backgroundColor = "#8B0000";
+        cercle.style.backgroundColor = "#D9544D";
+        etat.style.backgroundColor = "#D9544D";
+        indicateurTravail.style.color = "#D79A10"
+        indicateurPause.style.color = "#000"
+        pause = false;
     } else {
-        minute = 5;
+        minute = minutePause;
+        seconde = secondePause;
+        body.style.backgroundColor = "#006400";
+        cercle.style.backgroundColor = "#91c481";
+        etat.style.backgroundColor = "#91c481";
+        indicateurTravail.style.color = "#000"
+        indicateurPause.style.color = "#D79A10"
+        pause = true;
     }
     actualiseTimer()
 }
@@ -44,19 +75,25 @@ function passagePause() {
 function stop() {
     clearInterval(idInterval);
     idInterval = null;
-    seconde = 0;
-    minute = 25;
+    minute = minuteTravail;
+    seconde = secondeTravail;
+    body.style.backgroundColor = "#8B0000";
+    cercle.style.backgroundColor = "#D9544D";
+    etat.style.backgroundColor = "#D9544D";
+    indicateurTravail.style.color = "#D79A10"
+    indicateurPause.style.color = "#000"
+    pause = false;
     actualiseTimer();
 }
 
-function actualiseTimer(){
+function actualiseTimer() {
     let partieMinute = "";
     let partieSeconde = "";
-    if(minute < 10){
+    if (minute < 10) {
         partieMinute = "0";
     }
     partieMinute += minute.toString();
-    if(seconde < 10){
+    if (seconde < 10) {
         partieSeconde = "0";
     }
     partieSeconde += seconde.toString();
