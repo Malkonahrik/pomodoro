@@ -4,8 +4,8 @@ var pause = false;
 var minuteTravail = 25;
 var secondeTravail = 0;
 
-var minutePause = 0;
-var secondePause = 5;
+var minutePause = 5;
+var secondePause = 0;
 
 var minute = minuteTravail;
 var seconde = secondeTravail;
@@ -56,8 +56,8 @@ function passagePause() {
         body.style.backgroundColor = "#8B0000";
         cercle.style.backgroundColor = "#D9544D";
         etat.style.backgroundColor = "#D9544D";
-        indicateurTravail.style.color = "#D79A10"
-        indicateurPause.style.color = "#000"
+        indicateurTravail.style.fontWeight = "bold";
+        indicateurPause.style.fontWeight = "normal";
         pause = false;
     } else {
         minute = minutePause;
@@ -65,8 +65,8 @@ function passagePause() {
         body.style.backgroundColor = "#006400";
         cercle.style.backgroundColor = "#91c481";
         etat.style.backgroundColor = "#91c481";
-        indicateurTravail.style.color = "#000"
-        indicateurPause.style.color = "#D79A10"
+        indicateurTravail.style.fontWeight = "normal";
+        indicateurPause.style.fontWeight = "bold";
         pause = true;
     }
     actualiseTimer()
@@ -80,8 +80,8 @@ function stop() {
     body.style.backgroundColor = "#8B0000";
     cercle.style.backgroundColor = "#D9544D";
     etat.style.backgroundColor = "#D9544D";
-    indicateurTravail.style.color = "#D79A10"
-    indicateurPause.style.color = "#000"
+    indicateurTravail.style.fontWeight = "bold";
+    indicateurPause.style.fontWeight = "normal";
     pause = false;
     actualiseTimer();
 }
