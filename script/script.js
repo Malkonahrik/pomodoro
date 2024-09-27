@@ -1,11 +1,11 @@
 var idInterval;
 var pause = false;
 
-var minuteTravail = 25;
-var secondeTravail = 0;
+var minuteTravail = 0;
+var secondeTravail = 2;
 
-var minutePause = 5;
-var secondePause = 0;
+var minutePause = 0;
+var secondePause = 2;
 
 var minute = minuteTravail;
 var seconde = secondeTravail;
@@ -18,6 +18,10 @@ const cercle = document.getElementById("cercle");
 const etat = document.getElementById("etat");
 const indicateurTravail = document.getElementById("travail");
 const indicateurPause = document.getElementById("pause");
+const cercleParam = document.getElementById("cercleParam");
+const cercleStart = document.getElementById("cercleStart");
+const modal = document.getElementById("modal1");
+
 
 actualiseTimer();
 
@@ -55,6 +59,8 @@ function passagePause() {
         seconde = secondeTravail;
         body.style.backgroundColor = "#8B0000";
         cercle.style.backgroundColor = "#D9544D";
+        cercleParam.style.backgroundColor = "#D9544D";
+        cercleStart.style.backgroundColor = "#D9544D";
         etat.style.backgroundColor = "#D9544D";
         indicateurTravail.style.fontWeight = "bold";
         indicateurPause.style.fontWeight = "normal";
@@ -64,6 +70,8 @@ function passagePause() {
         seconde = secondePause;
         body.style.backgroundColor = "#006400";
         cercle.style.backgroundColor = "#91c481";
+        cercleParam.style.backgroundColor = "#91c481";
+        cercleStart.style.backgroundColor = "#91c481";
         etat.style.backgroundColor = "#91c481";
         indicateurTravail.style.fontWeight = "normal";
         indicateurPause.style.fontWeight = "bold";
@@ -98,4 +106,13 @@ function actualiseTimer() {
     }
     partieSeconde += seconde.toString();
     timer.innerText = partieMinute + " : " + partieSeconde;
+}
+
+function ouvrir() {
+    modal.classList.add("is-visible");
+}
+
+// When the user clicks on <span> (x), close the modal
+function fermer() {
+    modal.classList.remove("is-visible");
 }

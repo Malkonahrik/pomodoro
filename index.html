@@ -21,21 +21,36 @@
     <div class="centre">
         <div id="etat" class="arrondi centre">
             <p id="travail">Travail</p>
-            <p id="pause">Pause</p> 
-        </div>       
+            <p id="pause">Pause</p>
+        </div>
     </div>
     <div class="centre">
-        <div  id="cercle" class="centre">
+        <div id="cercle" class="centre">
             <p id="timer"></p>
         </div>
     </div>
     <div class="centre">
-        <div class="centre cercleBouton" onclick="passageTemps()">
-            <i class="fa-solid fa-play boutton" style="color: #fff;" ></i>
+        <div id="cercleStart" class="centre cercleBouton" onclick="passageTemps()">
+            <i class="fa-solid fa-play boutton" style="color: #fff;"></i>
         </div>
-        <div class="centre cercleBouton">
+        <div id="cercleParam" class="centre cercleBouton tourne" onclick="ouvrir()">
             <i id="param" class="fa-solid fa-gear boutton" style="color: #fff;"></i>
+        </div>
+        <div class="modal" id="modal1">
+            <div class="modal-dialog">
+                <header class="modal-header">
+                    <p>Paramètre de temps</p>
+                    <i class="fa-solid fa-rectangle-xmark close-modal boutton" onclick="fermer()"></i>
+                </header>
+                <section class="modal-content">
+                    <p>TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</p>
+                </section>
+                <footer class="modal-footer">
+                    <p>test footer</p>
+                </footer>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
