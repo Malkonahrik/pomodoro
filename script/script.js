@@ -87,6 +87,8 @@ function stop() {
     seconde = secondeTravail;
     body.style.backgroundColor = "#8B0000";
     cercle.style.backgroundColor = "#D9544D";
+    cercleParam.style.backgroundColor = "#D9544D";
+    cercleStart.style.backgroundColor = "#D9544D";
     etat.style.backgroundColor = "#D9544D";
     indicateurTravail.style.fontWeight = "bold";
     indicateurPause.style.fontWeight = "normal";
