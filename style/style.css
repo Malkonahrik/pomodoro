@@ -19,7 +19,7 @@ h2 {
     font-weight: bold;
 }
 
-p {
+p, label {
     font-family: "Open Sans", sans-serif;
     font-size: 2vh;
     color: #000;

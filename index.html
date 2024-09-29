@@ -42,7 +42,7 @@
                     <i class="fa-solid fa-rectangle-xmark close-modal boutton" onclick="fermer()"></i>
                     <p>Paramètre de temps</p>
                 </header>
-                <section class="modal-content">
+                <div class="modal-content">
                     <form id="formulaire">
                         <label for="tempsTravail">Durée du travail (minute) :</label>
                         <input type="number" id="tempsTravail" name="tempsTravail" min="5" max="120" required>
@@ -51,7 +51,7 @@
                         <input type="number" id="tempsPause" name="tempsPause" min="2" max="60"  required>
                         <br>
                     </form>
-                </section>
+                </div>
                 <footer class="modal-footer">
                     <button type="button" id="submitBtn" form="formulaire" onclick="sauvegarde()">Soumettre</button>
                 </footer>
