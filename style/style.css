@@ -108,8 +108,8 @@ p {
 
 .modal-dialog {
     position: relative;
-    width: 50vh;
-    height: 50vh;
+    width: auto;
+    height: auto;
     max-width: 100vh;
     max-height: 100vh;
     border-radius: 15px;
@@ -120,17 +120,28 @@ p {
     text-wrap: wrap;
 }
 
-
+.modal-content{
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
 
 .modal-header {
     display: flex;
     align-items: center;
-    justify-content: right;
-    padding: 1vh;
+    justify-content: left;
+    padding-left: 2vh;
+    padding-right: 2vh;
 }
 
 .modal-header .modal-close {
     font-size: 1.5rem;
+}
+
+.modal-footer{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin: 2vh;
 }
 
 .modal p+p {

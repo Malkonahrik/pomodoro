@@ -1,12 +1,17 @@
 var idInterval;
 var pause = false;
 
-var minuteTravail = 0;
-var secondeTravail = 2;
+var minuteTravail = sessionStorage.getItem("tempsTravail");
+var secondeTravail = 0;
 
-var minutePause = 0;
-var secondePause = 2;
+var minutePause = sessionStorage.getItem("tempsPause");;
+var secondePause = 0;
 
+
+if (minuteTravail == null || minutePause == null || minuteTravail == 0 || minutePause == 0) {
+    minuteTravail = 25;
+    minutePause = 5;
+}
 var minute = minuteTravail;
 var seconde = secondeTravail;
 
@@ -21,7 +26,6 @@ const indicateurPause = document.getElementById("pause");
 const cercleParam = document.getElementById("cercleParam");
 const cercleStart = document.getElementById("cercleStart");
 const modal = document.getElementById("modal1");
-
 
 actualiseTimer();
 
@@ -114,7 +118,37 @@ function ouvrir() {
     modal.classList.add("is-visible");
 }
 
-// When the user clicks on <span> (x), close the modal
 function fermer() {
     modal.classList.remove("is-visible");
+}
+
+function sauvegarde() {
+    const form = document.getElementById("formulaire");
+    const formData = new FormData(form);
+    let erreur = false;
+    let travailRentre = Number(formData.get("tempsTravail"));
+    let pauseRentre = Number(formData.get("tempsPause"));
+    if (Number(travailRentre) < 5) {
+        alert("Vous dever travailler plus de 5 minutes");
+        erreur = true;
+    }
+    if (Number(pauseRentre) < 2) {
+        alert("Vous dever avoir une pause de plus de 2 minutes");
+        erreur = true;
+    } if (Number(travailRentre) > 120) {
+        alert("Vous dever travailler moins de 120 minutes");
+        erreur = true;
+    }
+    if (Number(pauseRentre) > 60) {
+        alert("Vous dever avoir une pause de plus de 60 minutes");
+        erreur = true;
+    }
+    if (!erreur) {
+        sessionStorage.setItem("tempsTravail", travailRentre);
+        sessionStorage.setItem("tempsPause", pauseRentre);
+        minuteTravail = sessionStorage.getItem("tempsTravail");
+        minutePause = sessionStorage.getItem("tempsPause");;
+        location.reload();
+    }
+
 }

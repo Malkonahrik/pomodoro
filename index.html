@@ -39,14 +39,21 @@
         <div class="modal" id="modal1">
             <div class="modal-dialog">
                 <header class="modal-header">
-                    <p>Paramètre de temps</p>
                     <i class="fa-solid fa-rectangle-xmark close-modal boutton" onclick="fermer()"></i>
+                    <p>Paramètre de temps</p>
                 </header>
                 <section class="modal-content">
-                    <p>TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</p>
+                    <form id="formulaire">
+                        <label for="tempsTravail">Durée du travail (minute) :</label>
+                        <input type="number" id="tempsTravail" name="tempsTravail" min="5" max="120" required>
+                        <br>
+                        <label for="tempsPause">Durée de la pause (minute) :</label>
+                        <input type="number" id="tempsPause" name="tempsPause" min="2" max="60"  required>
+                        <br>
+                    </form>
                 </section>
                 <footer class="modal-footer">
-                    <p>test footer</p>
+                    <button type="button" id="submitBtn" form="formulaire" onclick="sauvegarde()">Soumettre</button>
                 </footer>
             </div>
         </div>
