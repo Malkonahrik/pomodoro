@@ -19,11 +19,22 @@ h2 {
     font-weight: bold;
 }
 
-p, label {
+p {
     font-family: "Open Sans", sans-serif;
     font-size: 2vh;
     color: #000;
     margin: 3vh;
+}
+
+label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2vh;
+    color: #000;
+    margin-left: 3vh;
+}
+
+#submitBtn{
+    font-family: "Open Sans", sans-serif;
 }
 
 #travail {
@@ -37,7 +48,7 @@ p, label {
 }
 
 .boutton {
-    font-size: 5vh;
+    font-size: 4vh;
     flex-wrap: wrap;
     cursor: pointer;
 }
@@ -155,10 +166,8 @@ p, label {
 
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    cursor: pointer;
+    font-size: 0ch;
 }
 
 .close:hover,

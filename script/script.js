@@ -26,11 +26,14 @@ const indicateurPause = document.getElementById("pause");
 const cercleParam = document.getElementById("cercleParam");
 const cercleStart = document.getElementById("cercleStart");
 const modal = document.getElementById("modal1");
+const bouton = document.getElementById("btn");
+console.log(bouton);
 
 actualiseTimer();
 
 function passageTemps() {
-    const bouton = document.getElementById("btn");
+    bouton.classList.remove("fa-play");
+    bouton.classList.add("fa-stop");
     if (idInterval == null) {
         idInterval = setInterval(decrementeSeconde, 1000);
     } else {
@@ -97,6 +100,8 @@ function stop() {
     indicateurTravail.style.fontWeight = "bold";
     indicateurPause.style.fontWeight = "normal";
     pause = false;
+    bouton.classList.remove("fa-stop");
+    bouton.classList.add("fa-play");
     actualiseTimer();
 }
 
