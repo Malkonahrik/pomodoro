@@ -2,15 +2,20 @@ var idInterval;
 var pause = false;
 
 var minuteTravail = sessionStorage.getItem("tempsTravail");
-var secondeTravail = 0;
+var secondeTravail = sessionStorage.getItem("tempsTravailSeconde");
 
-var minutePause = sessionStorage.getItem("tempsPause");;
-var secondePause = 0;
+var minutePause = sessionStorage.getItem("tempsPause");
+var secondePause = sessionStorage.getItem("tempsPauseSeconde");
 
 
 if (minuteTravail == null || minutePause == null || minuteTravail == 0 || minutePause == 0) {
     minuteTravail = 25;
     minutePause = 5;
+}
+
+if (secondeTravail == null || secondePause == null || secondeTravail == 0 || secondePause == 0) {
+    secondeTravail = 0;
+    secondePause = 0;
 }
 var minute = minuteTravail;
 var seconde = secondeTravail;
@@ -133,26 +138,44 @@ function sauvegarde() {
     let erreur = false;
     let travailRentre = Number(formData.get("tempsTravail"));
     let pauseRentre = Number(formData.get("tempsPause"));
-    if (Number(travailRentre) < 5) {
-        alert("Vous dever travailler plus de 5 minutes");
+    let travailRentreSeconde = Number(formData.get("tempsTravailSeconde"));
+    let pauseRentreSeconde = Number(formData.get("tempsPauseSeconde"));
+    if (Number(travailRentre) < 1) {
+        alert("Vous ne pouvez pas travailler pendant moins d'une minute");
         erreur = true;
     }
-    if (Number(pauseRentre) < 2) {
-        alert("Vous dever avoir une pause de plus de 2 minutes");
+    if (Number(pauseRentre) < 1) {
+        alert("Vous ne pouvez pas avoir moins d'une minute de pause");
         erreur = true;
-    } if (Number(travailRentre) > 120) {
-        alert("Vous dever travailler moins de 120 minutes");
+    } if (Number(travailRentreSeconde) < 0) {
+        alert("Vous ne pouvez pas travailler pendant un nombre négatif de seconde (à moins de remonter dans le temps)");
         erreur = true;
     }
-    if (Number(pauseRentre) > 60) {
-        alert("Vous dever avoir une pause de plus de 60 minutes");
+    if (Number(pauseRentreSeconde) < 0) {
+        alert("Vous ne pouvez pas avoir une pause qui est un nombre négatif de seconde (à moins de remonter dans le temps)");
+        erreur = true;
+    }
+    if (Number(travailRentreSeconde) > 59) {
+        alert("Au delà de 59 seconde, ça fait une minute. Veuillez corriger cela");
+        erreur = true;
+    }
+    if (Number(pauseRentreSeconde) > 59) {
+        alert("Au delà de 59 seconde, ça fait une minute. Veuillez corriger cela");
+        erreur = true;
+    }
+    if(Number(pauseRentreSeconde)%1 != 0 || Number(pauseRentre)%1 != 0 || Number(travailRentre)%1 != 0 || Number(travailRentreSeconde)%1 != 0  ){
+        alert("Des valeur ne sont pas des entiers");
         erreur = true;
     }
     if (!erreur) {
         sessionStorage.setItem("tempsTravail", travailRentre);
         sessionStorage.setItem("tempsPause", pauseRentre);
+        sessionStorage.setItem("tempsTravailSeconde", travailRentreSeconde);
+        sessionStorage.setItem("tempsPauseSeconde", pauseRentreSeconde);
         minuteTravail = sessionStorage.getItem("tempsTravail");
-        minutePause = sessionStorage.getItem("tempsPause");;
+        minutePause = sessionStorage.getItem("tempsPause");
+        secondeTravail = sessionStorage.getItem("tempsTravailSeconde");
+        secondePause = sessionStorage.getItem("tempsPauseSconde");
         location.reload();
     }
 
